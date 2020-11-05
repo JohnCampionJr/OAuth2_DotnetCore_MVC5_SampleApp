@@ -16,12 +16,12 @@ namespace OAuth2_CoreMVC_Sample.Controllers
 {
     public class QBOController : Controller
     {
-        private readonly IServices _services;
+        private readonly IQuickBooksService _quickBooksService;
         private string id;
 
-        public QBOController(IServices services)
+        public QBOController(IQuickBooksService quickBooksService)
         {
-            _services = services;
+            _quickBooksService = quickBooksService;
         }
 
         // GET: /<controller>/
@@ -33,7 +33,7 @@ namespace OAuth2_CoreMVC_Sample.Controllers
         public async Task<IActionResult> CreateCustomer()
         {
             var apiCallFucntion = new Action<ServiceContext>(CreateNewCustomer);
-            await _services.QBOApiCall(apiCallFucntion);
+            await _quickBooksService.QBOApiCall(apiCallFucntion);
             return View("QBO");
         }
 
@@ -41,7 +41,7 @@ namespace OAuth2_CoreMVC_Sample.Controllers
         {
             id = customerId;
             var apiCallFucntion = new Action<ServiceContext>(CreateNewInvoice);
-            await _services.QBOApiCall(apiCallFucntion);
+            await _quickBooksService.QBOApiCall(apiCallFucntion);
 
             return View("QBO");
         }

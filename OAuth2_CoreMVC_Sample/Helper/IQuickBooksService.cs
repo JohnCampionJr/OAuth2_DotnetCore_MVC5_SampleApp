@@ -4,7 +4,7 @@ using Intuit.Ipp.Core;
 
 namespace OAuth2_CoreMVC_Sample.Helper
 {
-    public interface IServices
+    public interface IQuickBooksService
     {
         Task QBOApiCall(Action<ServiceContext> apiCallFunction);
     }

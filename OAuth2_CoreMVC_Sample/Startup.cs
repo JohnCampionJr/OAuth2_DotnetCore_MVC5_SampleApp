@@ -33,7 +33,7 @@ namespace OAuth2_CoreMVC_Sample
 
             services.AddDbContext<TokensContext>(options => options.UseSqlite(Configuration.GetConnectionString("DBConnectionString")));
 
-            services.AddTransient<IServices, Services>();
+            services.AddTransient<IQuickBooksService, QuickBooksService>();
             services.Configure<OAuth2Keys>(Configuration.GetSection("OAuth2Keys"));
           
             services.AddSingleton(provider => Configuration);

@@ -56,7 +56,6 @@ namespace OAuth2_CoreMVC_Sample.Controllers
                         var scopes = new List<OidcScopes>();
                         scopes.Add(OidcScopes.Accounting);
                         var authorizeUrl = oAuth2Client.GetAuthorizationURL(scopes);
-                        OAuth2Keys.AuthURL = authorizeUrl;
                         return Redirect(authorizeUrl);
                     default:
                         return View("Connect");
